@@ -2,10 +2,12 @@ import pygame
 from Engine.Display import Display
 from Engine.Input import Input
 
-class Engine():
+
+class Engine:
     """
     Pygame based game engine
     """
+
     def __init__(self, game_manager):
         """
         game_manager needs to be a reference to a class that can handle the game
@@ -13,18 +15,18 @@ class Engine():
         """
         pygame.init()
 
-        #setting up objects to handle the display and input events
+        # setting up objects to handle the display and input events
         self.display = Display(self)
         self.input = Input(self)
 
-        #time and speed
+        # time and speed
         self.clock = pygame.time.Clock()
         self.fps = 60
 
-        #controls if game is quit or not
-        self.running = False 
+        # controls if game is quit or not
+        self.running = False
 
-        #this is the object that handles the game itself
+        # this is the object that handles the game itself
         self.game_manager = game_manager()
 
     def handle_event(self, event):

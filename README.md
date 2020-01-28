@@ -38,3 +38,9 @@ e.game_loop() #8
 6.  When an input event happens, the Engine calls this method with the event object as an argument.  You can also poll which keys are pressed at any point in the process by using pygame.keys.get_pressed()
 7.  To start all this, we hand the Engine a reference to our Game class.  The engine itself will instantiate the class.
 8.  Call the game_loop method on our engine to start the game
+
+### Examples
+Here are some of my repos using PygEngine:
+
+* [Pytris](https://github.com/majormunky/pytris)
+* [Pygame RPG](https://github.com/majormunky/pygame-2019)

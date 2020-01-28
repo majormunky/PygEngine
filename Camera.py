@@ -9,16 +9,16 @@ class Camera:
         self.width, self.height = Config.get_screensize()
         self.move_distance = 32
 
-    def move(self, new_rect, container, direction=None):
+    def move(self, new_rect, container, amount, direction=None):
         if direction:
             if direction == "up":
-                new_rect.y -= 32
+                new_rect.y -= amount
             elif direction == "down":
-                new_rect.y += 32
+                new_rect.y += amount
             elif direction == "left":
-                new_rect.x -= 32
+                new_rect.x -= amount
             elif direction == "right":
-                new_rect.x += 32
+                new_rect.x += amount
         else:
             print("No direction given to camera")
             return False

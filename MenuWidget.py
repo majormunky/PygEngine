@@ -45,7 +45,7 @@ class MenuWidget:
                 item, self.font_size, color, font_face=self.font_face
             )
 
-    def handle_key(self, key):
+    def handle_key(self, key, callback):
         new_item = int(self.current_item)
         if key == pygame.K_UP:
             if self.current_item == 0:
@@ -60,6 +60,8 @@ class MenuWidget:
         if new_item != self.current_item:
             if self.list_items[new_item] not in self.disabled_items:
                 self.current_item = new_item
+        if callback:
+            callback(self.current_item)
 
     def get_current_item(self):
         return self.list_items[self.current_item]

@@ -1,9 +1,11 @@
 import pygame
+from Engine.AssetManager import load_image
 
 
 class Spritesheet:
     def __init__(self, image, width, height, padding):
-        self.image = image
+        self.image_name = image
+        self.image = load_image(self.image_name)
         self.width = width
         self.height = height
         self.padding = padding

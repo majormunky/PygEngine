@@ -18,5 +18,8 @@ class Spritesheet:
             dest[0] += (x - 1) * self.width
         if y > 1:
             dest[1] += (y - 1) * self.height
+
+        dest = pygame.Rect(dest[0], dest[1], self.width, self.height)
+
         surf.blit(self.image, (0, 0), dest)
         return surf

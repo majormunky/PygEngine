@@ -61,7 +61,8 @@ class MenuWidget:
             if self.list_items[new_item] not in self.disabled_items:
                 self.current_item = new_item
         if callback:
-            callback(self.current_item)
+        	current = self.list_items[self.current_item]
+            callback(current)
 
     def get_current_item(self):
         return self.list_items[self.current_item]

@@ -1,10 +1,14 @@
 import pygame
 from Engine import Config
 
+
 class Display:
-    def __init__(self, engine):
+    def __init__(self, engine, fullscreen=False):
         self.engine = engine
-        self.surface = pygame.display.set_mode(Config.get_screensize())
+        if fullscreen:
+            self.surface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        else:
+            self.surface = pygame.display.set_mode(Config.get_screensize())
         self.back_buffer = pygame.Surface(Config.get_screensize(), pygame.SRCALPHA)
 
     def get_buffer(self):

@@ -8,7 +8,7 @@ class Engine:
     Pygame based game engine
     """
 
-    def __init__(self, game_manager):
+    def __init__(self, game_manager, fullscreen=False):
         """
         game_manager needs to be a reference to a class that can handle the game
         so it does the actual work when update, draw and handle_events are called
@@ -16,7 +16,7 @@ class Engine:
         pygame.init()
 
         # setting up objects to handle the display and input events
-        self.display = Display(self)
+        self.display = Display(self, fullscreen)
         self.input = Input(self)
 
         # time and speed

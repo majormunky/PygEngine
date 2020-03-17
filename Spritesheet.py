@@ -11,7 +11,7 @@ class Spritesheet:
         self.padding = padding
 
     def get_image(self, x, y):
-        surf = pygame.Surface((self.width, self.height))
+        surf = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
         dest = [x * self.width, y * self.height]
         if x > 0:
             # add in padding

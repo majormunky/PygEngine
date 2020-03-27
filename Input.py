@@ -1,5 +1,6 @@
 import pygame
 
+
 class Input:
     def __init__(self, engine):
         self.engine = engine
@@ -12,6 +13,13 @@ class Input:
         down if found.  If its anything but a quit event we send it to the
         handle_event method in the engine object
         """
+
+        events = [
+            pygame.MOUSEBUTTONDOWN,
+            pygame.MOUSEBUTTONUP,
+            pygame.KEYUP,
+        ]
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.engine.running = False
@@ -20,7 +28,5 @@ class Input:
                     self.engine.running = False
                 else:
                     self.engine.handle_event(event)
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                self.engine.handle_event(event)
-            elif event.type == pygame.KEYUP:
+            elif event.type in events:
                 self.engine.handle_event(event)

@@ -12,6 +12,7 @@ class MenuWidget:
         disabled_color=(200, 200, 200),
         font_size=40,
         font_face=None,
+        menu_spacing=1.5
     ):
         self.x = x
         self.y = y
@@ -24,6 +25,9 @@ class MenuWidget:
         self.text_color = text_color
         self.disabled_color = disabled_color
         self.menu_height = 0
+        self.menu_spacing = menu_spacing
+        self.bullet_character = ">"
+        self.bullet = text_surface(self.bullet_character, font_size=self.font_size, color=self.text_color)
         self.title = None
         self.render_images()
 
@@ -78,7 +82,5 @@ class MenuWidget:
         for index, item in enumerate(self.list_items):
             canvas.blit(self.item_images[item], (self.x, base_y))
             if self.current_item == index:
-                pygame.draw.rect(
-                    canvas, self.text_color, (self.x - 20, base_y + 5, 10, 10)
-                )
-            base_y += self.item_images[item].get_height()
+                canvas.blit(self.bullet, (self.x - 15, base_y - 2))
+            base_y += int(self.item_images[item].get_height() * self.menu_spacing)

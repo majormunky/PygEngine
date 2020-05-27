@@ -18,6 +18,7 @@ class Input:
             pygame.MOUSEBUTTONDOWN,
             pygame.MOUSEBUTTONUP,
             pygame.KEYUP,
+            pygame.KEYDOWN,
         ]
 
         for event in pygame.event.get():
